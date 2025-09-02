@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat React-js</title>
+</head>
+
+<body>
+    <div id="root">
+
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+        <script type="text/babel">
+
+            const buttonVariants = {
+                default: 'bg-gray-500 text-white',
+                add: 'bg-yellow-500 text-purple-700',
+                del: 'bg-purple-700 text-yellow-500'
+            }
+
+            function Button({ variant = 'default', children, className, ...props }) {
+
+                return (
+
+                    <button className={`px-3 py-2 rounded 
+                    ${buttonVariants[variant]}
+                    ${className}`}
+                        {...props}>
+
+                        {children}
+
+                    </button>
+
+                )
+
+            }
+
+
+            function App() {
+
+                return <main className="flex gap-2 p-3">
+
+                    <Button variant="add" type="button" title="add" className="mr-2">
+                        adicionar
+                    </Button>
+                    <Button variant="del" type="button" title="del" className="px-5">
+                        deletar
+                    </Button>
+
+                </main>
+
+            }
+
+            ReactDOM.createRoot(document.getElementById('root')).render(
+                <App />
+            )
+
+        </script>
+
+    </div>
+</body>
+
+</html>
